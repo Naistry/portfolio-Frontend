@@ -1,0 +1,50 @@
+.color{
+    background-color: #221C44;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media(max-width:1208px){
+    .contenedor{
+       
+        width: 100%;
+      
+    }
+}
+
+@media (max-width: 1092px){
+    .contenedor{
+       
+        width: 80%;
+       
+    }
+}
+
+@media (max-width: 974px){
+    .contenedor{
+       
+      
+        width: 80%;
+    }
+}
+
+
+@media (max-width: 572px){
+    .contenedor{
+       
+      
+        width: 100%;
+        justify-content: center;
+    }
+}
