@@ -10,6 +10,10 @@ h1{
   color: #B2A8EE;
 }
 
+a{
+  width: 80%;
+  margin: 10px auto;
+}
 .seccion{
   color: #B2A8EE;
   border-bottom: solid 2px#B2A8EE;;
@@ -21,6 +25,7 @@ h1{
   -webkit-box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
   -moz-box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
   color:#fff;
+  width: 100%;
 }
 
 .btn:hover{

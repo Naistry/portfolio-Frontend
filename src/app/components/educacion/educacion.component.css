@@ -5,3 +5,25 @@
     border-radius: 1rem;
     padding: 1rem;
 }
+
+
+h1{
+    color: #B2A8EE;
+}
+
+.seccion{
+    color: #B2A8EE;
+    border-bottom: solid 2px#B2A8EE;;
+}
+
+.logo__education{
+    background-color: #B2A8EE;
+    height: 225px;
+    width: 225px;
+  
+}
+.color_emoji{
+    color: #B2A8EE;
+  
+    
+}
