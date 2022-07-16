@@ -2,6 +2,28 @@ html,
 body,
 .intro {
   height: 100%;
+  background-image: url("../../../assets/image/espacio13.png");
+  animation: fondo 120s linear infinite;
+  overflow-x: hidden;
+}
+
+
+.movimiento{
+  width: 0;
+  height: 0;
+  animation: movimiento 20s infinite linear;
+  margin: 0;
+ 
+}
+
+.astronauta{
+  background-image: url("../../../assets/image/Astronauta1.png");
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 109px;
+  animation: astronauta 20s infinite linear;
+  margin: 0;
+  
 }
 
 @media (min-width: 560px) and (max-width: 750px) {
@@ -29,4 +51,36 @@ body,
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to bottom, rgba(108, 99, 255, 1), rgba(34, 28, 64, 1))
+}
+
+@keyframes fondo{
+
+  100%{
+      background-position-x: -1600px ;
+  }
+}
+
+
+@keyframes astronauta{
+  
+  from{
+
+  }
+  to{
+      transform: rotate(360deg);
+  } 
+ 
+}
+
+
+@keyframes movimiento{
+  from{
+     transform: translate(-200px, 100px);
+  }
+
+  to{
+     
+      transform: translate(1600px, 300px);
+    
+  }
 }

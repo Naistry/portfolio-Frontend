@@ -1,7 +1,8 @@
 
 main{
-    background-image: url("../../../assets/image/fondoportfolio.png");
+    background-image: url("../../../assets/image/espacio13.png");
     background-position: center;
+    animation: fondo 60s linear infinite;
     color: #fff;
 }
 
@@ -9,3 +10,11 @@ footer{
     background-color: #0F0B21;
     color: #fff;
 }
+
+@keyframes fondo{
+
+    100%{
+        background-position-x: -1600px ;
+    }
+}
+
