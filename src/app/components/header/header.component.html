@@ -11,7 +11,8 @@
     <div class="d-flex " >
       <a href="https://www.linkedin.com/in/mart%C3%ADnpastorino/" target="_blank" class="me-3"><img src="../../../assets/icon-contacto/in.svg" alt="" width="30" height="24" class="d-inline-block hoveritem "></a>
       <a href="https://github.com/Naistry" target="_blank" class="me-3"><img src="../../../assets/icon-contacto/git.svg" alt="" width="30" height="24" class="d-inline-block hoveritem"></a>
-      <button type="button" class="btn" (click)="login()">Login</button>
+      <button type="button" class="btn" (click)="login()" *ngIf="!isLogged">Login</button>
+      <button type="button" class="btn" (click)="onLogOut()" *ngIf="isLogged">Cerrar Sesión</button>
     </div>
     </div>
    
