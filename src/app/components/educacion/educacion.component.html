@@ -1,7 +1,32 @@
 
 <div class="color mb-5">
     <h1 class="text-center text-md-start seccion">Educación</h1>
-      <ul class="p-0">
+    
+    <div class="col-lg-2">
+      <button type="button" class="btn btn-primary" routerLink="/newEdu"  *ngIf="isLogged">
+        Nueva Educación
+      </button>
+    </div>
+
+    <div class="col-lg-11"></div>
+     <table class="table">
+      <tr *ngFor="let Education of education">
+        <td style="color: white">{{Education.nombreE}}</td>
+        <td style="color: white">{{Education.descripcionE}}</td>
+        <td>
+          <button class="btn btn-primary" routerLink="/editEdu/{{Education.id}}"  *ngIf="isLogged"><i class="bi bi-pencil-fill"></i>Editar</button>
+         </td>
+        <td><button class="btn btn-primary" (click)="delete(Education.id)"><i class="bi bi-trash"></i>Borrar</button></td>
+        
+      </tr>
+       
+     </table>
+     
+</div>
+
+
+<!-- 
+<ul class="p-0">
         <li class="d-flex flex-column flex-md-row align-items-center mb-4 mt-4">
           <img src="../../../assets/image/Universidad-Nacional-del-Oeste.png" width="225" alt="" class="mt-2 mb-2">
           <div class="container d-flex flex-column justify-content-center row">
@@ -74,4 +99,6 @@
         </li>
     
       </ul>
-</div>
+
+
+-->
