@@ -8,7 +8,39 @@
     background-position: center;
 }
 
+.fondo-banner{
+    background-image: url("../../../assets/image/espacio-banner.png");
+    width: 100%;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
 
+}
+
+.efecto{
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 2rem;
+    margin: 0 auto;
+    border-right: 0.15em solid #ffffff;
+    animation: typing 4s steps(19) 1s 1 normal both, blink 1s steps(1) infinite;
+}
+
+@keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
 @media (max-width:576px){
     .bg-banner{
         background-position: right;
@@ -18,4 +50,10 @@
 img{
     width: 100%;
     
+}
+
+@keyframes girar{
+    100%{
+        transform:rotateZ(360deg)
+    }
 }

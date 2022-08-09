@@ -19,7 +19,7 @@ export class EditEducationComponent implements OnInit {
 
     }, err =>{
       alert("Error al editar educación");
-      this.router.navigate(['']);
+      
     })
   }
 
