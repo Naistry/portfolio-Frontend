@@ -1,12 +1,12 @@
 export class Skill {
 
-    id?: Number;
-    porcent: Number;
+    id?: number;
+    percent: number;
     imgSkill: String;
 
-    constructor(porcent: Number, imgSkill: String){
+    constructor(percent: number, imgSkill: String){
 
-        this.porcent = porcent;
+        this.percent = percent;
         this.imgSkill = imgSkill;
 
     }

@@ -1,8 +1,14 @@
 <div class="color mb-5">
    <h1 class="text-center text-md-start seccion">Skills</h1>
-  <div  class="contenedor">
+
+   <div class="col-lg-2">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarSkillModal"  *ngIf="isLogged" >
+      Nuevo Skill
+    </button>
+  </div>
+  <div  class="contenedor" *ngFor="let skills of skill">
     <circle-progress
-    [percent]="85"
+    [percent]="(skills.percent)"
     [radius]="80"
     imageSrc="../../../assets/icons/html.svg"
     [showImage]="true"
@@ -15,215 +21,105 @@
     [animation]="true"
     [animationDuration]="300"
     ></circle-progress>
+    <div>
+    <button *ngIf="isLogged" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminarSkillModal" (click)="onOpenModal('delete',skills)">
+      eliminar
+    </button>
 
-    <circle-progress
-    [percent]="85"
-    [radius]="80"
-    imageSrc="../../../assets/icons/css.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="80"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
+    <button  *ngIf="isLogged" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarSkillModal" (click)="onOpenModal('edit',skills)">
+      editar
+      </button>
+  </div>
+    </div>  
 
-    <circle-progress
-    [percent]="75"
-    [radius]="80"
-    imageSrc="../../../assets/icons/js.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="80"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
+</div>
 
-    <circle-progress
-    [percent]="80"
-    [radius]="80"
-    imageSrc="../../../assets/icons/bootstrap.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="80"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
 
-    <circle-progress
-    [percent]="80"
-    [radius]="80"
-    imageSrc="../../../assets/icons/sass.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="80"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
+<!--Modal Create-->
+<div class="modal fade" id="agregarSkillModal" tabindex="-1" aria-labelledby="agregarSkillModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: black;" id="agregarSkillModal">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div style="color: black;" class="modal-body">
+        <form (ngSubmit)="onCreate()" noValidate #f="ngForm">
+          <div class="form-group">
+              <label for="percent">Porcentaje del Skill</label>
+              <input type="number" class="form-control" id="percent" name="percent" [(ngModel)]= "percent" required>
+              <label for="imgSkill">Imagen de la Skill</label>
+              <input type="text" class="form-control" id="imgSkill" name="imgSkill" [(ngModel)]= "imgSkill" required>
+          </div>
 
-    <circle-progress
-    [percent]="70"
-    [radius]="80"
-    imageSrc="../../../assets/icons/gulp.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="45"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
+          <button class="btn btn-primary">
+              Agregar Skill
+          </button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <circle-progress
-    [percent]="65"
-    [radius]="80"
-    imageSrc="../../../assets/icons/angular.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="80"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
 
-    <circle-progress
-    [percent]="60"
-    [radius]="80"
-    imageSrc="../../../assets/icons/react.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="110"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
+<!--Modal delete-->
+<div class="modal fade" data-bs-toggle="modal" data-bs-target="#eliminarSkillModal" id="eliminarSkillModal" tabindex="-1" role="dialog" aria-labelledby="eliminarSkillModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="eliminarSkillModal">Borrar Skill</h5>
+              <button class="close" type="button" data-bs-dismiss="modal" aria-label="close" >
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body" style="color: black;">
+              <p> Estas seguro que quiere eliminar esta Skill?</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  No
+              </button>
 
-    <circle-progress
-    [percent]="80"
-    [radius]="80"
-    imageSrc="../../../assets/icons/jav.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="80"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
+              <button (click)="delete(deleteSkill!.id)"  class="btn btn-danger" data-bs-dismiss="modal">Si</button>
+          </div>
+      </div>
 
-    <circle-progress
-    [percent]="60"
-    [radius]="80"
-    imageSrc="../../../assets/icons/php.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="100"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
+  </div>
 
-    
-    <circle-progress
-    [percent]="70"
-    [radius]="80"
-    imageSrc="../../../assets/icons/mysql.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="80"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
+ </div>
 
-    <circle-progress
-    [percent]="55"
-    [radius]="80"
-    imageSrc="../../../assets/icons/spring.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="80"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
+ <!--Modal upDate-->
+<div class="modal fade" id="editarSkillModal" tabindex="-1" aria-labelledby="editarSkillModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarSkillModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <div class="form-group">
+              <label for="percent">Editar Porcentaje</label>
+              <input type="number" ngModel="{{editSkill?.percent}}" name="percent" class="form-control" id="percent"  aria-describedby="emailHelp">
+          </div>
 
-    <circle-progress
-    [percent]="70"
-    [radius]="80"
-    imageSrc="../../../assets/icons/unity.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="80"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
-    <circle-progress
-    [percent]="70"
-    [radius]="80"
-    imageSrc="../../../assets/icons/csharp.svg"
-    [showImage]="true"
-    [imageHeight]="80"
-    [imageWidth]="80"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
+          <div class="form-group">
+              <label for="imgSkill">Id</label>
+              <input type="text" ngModel="{{editSkill?.imgSkill}}" name="imgSkill" class="form-control" id="imgSkill">
+          </div>
+          
+          <div class="form-group">
+            <label for="id">Id</label>
+            <input type="hidden" ngModel="{{editSkill?.id}}" name="id" class="form-control" id="ideEdu">
+        </div>
+          <div class="footer-modal">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> Cerrar </button>
 
-    <circle-progress
-    [percent]="80"
-    [radius]="80"
-    imageSrc="../../../assets/icons/figma.svg"
-    [showImage]="true"
-    [imageHeight]="70"
-    [imageWidth]="50"
-    [outerStrokeWidth]="10"
-    [innerStrokeWidth]="5"
-    [outerStrokeColor]="'#B2A8EE'"
-    [innerStrokeColor]="'#6C63FF'"
-    [animation]="true"
-    [animationDuration]="300"
-    ></circle-progress>
-    </div> 
+              <button (click)="onUpDateEducation(editForm.value)" class="btn btn-primary" data-bs-dismiss="modal"> Guardar cambios</button>
+          </div>
+      </form>
+      
+      </div>
+    </div>
+  </div>
 </div>
