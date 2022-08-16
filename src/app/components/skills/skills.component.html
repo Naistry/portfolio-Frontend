@@ -10,7 +10,7 @@
     <circle-progress
     [percent]="(skills.percent)"
     [radius]="80"
-    imageSrc="../../../assets/icons/html.svg"
+    imageSrc={{skills.imgSkill}}
     [showImage]="true"
     [imageHeight]="80"
     [imageWidth]="80"
@@ -23,7 +23,7 @@
     ></circle-progress>
     <div>
     <button *ngIf="isLogged" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminarSkillModal" (click)="onOpenModal('delete',skills)">
-      eliminar
+      <i class="bi bi-trash"></i>
     </button>
 
     <button  *ngIf="isLogged" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarSkillModal" (click)="onOpenModal('edit',skills)">

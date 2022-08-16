@@ -16,6 +16,7 @@ export class EducacionComponent implements OnInit {
   nombreE: string = '';
   descripcionE: string = '';
   edu: Educacion = null;
+  imgEducation: string ='';
  
   constructor(private sEducation: SEducationService, private tokenService: TokenService) { }
 
@@ -50,7 +51,7 @@ export class EducacionComponent implements OnInit {
   }
 
   onCreate(): void{
-    const edu = new Educacion(this.nombreE, this.descripcionE);
+    const edu = new Educacion(this.nombreE, this.descripcionE, this.imgEducation);
     this.sEducation.save(edu).subscribe(
       data =>{alert('Educación añadida');
       this.cargarEducation();

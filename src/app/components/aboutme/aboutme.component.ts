@@ -11,11 +11,7 @@ import { TokenService } from 'src/app/service/token.service';
 export class AboutmeComponent implements OnInit {
   persona: persona = new persona("", "", "","","");
   person: persona;
-  nombre:String = '';
-  apellido:String ='';
-  descripcion:String ='';
-  img:String ='';
-  titulo:String ='';
+ 
 
   constructor(public personaService: PersonaService,  private tokenService: TokenService) { }
 
@@ -47,7 +43,7 @@ export class AboutmeComponent implements OnInit {
       this.personaService.upDatePersona(this.person.id,this.person).subscribe(data=>{
         this.getPersona();
       }, err=>{
-        alert("No se pudo editar la educación");
+        alert("No se pudo editar la persona");
       })
     }
 }
