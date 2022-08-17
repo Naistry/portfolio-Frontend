@@ -35,7 +35,7 @@ a{
 
 @media(max-width: 576px){
   .titulo{
-    height: 30vh;
+    height: 35vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

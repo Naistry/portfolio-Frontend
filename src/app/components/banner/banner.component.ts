@@ -47,12 +47,12 @@ export class BannerComponent implements OnInit {
 
  }
 
- onUpDateProyecto(banner:Banner){
+ onUpDateBanner(banner:Banner){
  
   this.bannerService.updateBanner(banner.id, banner).subscribe(data=>{
     this.getBanner();
   }, err=>{
-    alert("No se pudo editar la educación");
+    alert("No se pudo editar el Banner");
   });
 }
 

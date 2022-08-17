@@ -39,7 +39,7 @@ export class AboutmeComponent implements OnInit {
     onUpDatePersona(personaEdit: persona){
       
       this.person = personaEdit;
-      console.log(this.person);
+      
       this.personaService.upDatePersona(this.person.id,this.person).subscribe(data=>{
         this.getPersona();
       }, err=>{

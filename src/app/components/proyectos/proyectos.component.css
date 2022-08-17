@@ -17,3 +17,20 @@
     width: 900px;
    
 }
+h1{
+    color: rgb(178, 168, 238);
+}
+
+.btn {
+    background-color: #6c63ff;
+    box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+    -webkit-box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+    -moz-box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+    color:#fff;
+    
+  }
+  
+  .btn:hover{
+    background-color: #7F78A7;
+  }
+  

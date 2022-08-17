@@ -41,7 +41,7 @@ export class EducacionComponent implements OnInit {
     }else if (mode==='edit'){
 
       this.editEducation = educacion;
-      console.log(educacion);
+     
     }
 
   }

@@ -1,45 +1,47 @@
 
-<div class="color mb-5">
+<div class="color mb-5"> 
     <h1 class="text-center text-md-start seccion">Educación</h1>
     
-    <div class="col-lg-2">
+    <div class="col-4">
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarEducacionModal"  *ngIf="isLogged">
         Nueva Educación
       </button>
     </div>
 
-    <div class="col-lg-11"></div>
-     <table class="table">
-      <tr *ngFor="let Education of education">
-        <td style="color: white">{{Education.nombreE}}</td>
-        <td style="color: white">{{Education.descripcionE}}</td>
-        <td><img src={{Education.imgEducation}} alt=""></td>
-      
-        
-        <td><button *ngIf="isLogged" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminarEducacionModal" (click)="onOpenModal('delete',Education)">
-          eliminar
-        </button></td>
-        
-       <td><button  *ngIf="isLogged" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarEducacionModal" (click)="onOpenModal('edit',Education)">
-        editar
-        </button></td>
-        
-        
-      </tr>
-       
-     </table>
-     
-</div>
+    <div class="row justify-content-center mt-4" *ngFor="let Education of education">
+      <div class="col-12 col-md-4 d-flex justify-content-center">
+         <img src={{Education.imgEducation}} width="225" height="175" alt="" class="mt-2 mb-2">
+      </div>
+      <div class="col-12 col-md-6 d-flex flex-column justify-content-center text-center text-md-start">
+        <h1 class=" fs-2">{{Education.nombreE}}</h1>
+        <p class="mb-0" style="word-wrap: break-word;"><span class="color_emoji">&#9672;</span> {{Education.descripcionE}}</p>
+      </div>
+      <div class="-col-12 col-md-2 d-flex flex-md-row justify-content-center">
+        <div>
+        <button *ngIf="isLogged" type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#eliminarEducacionModal" (click)="onOpenModal('delete',Education)">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+      <div>
+       <button  *ngIf="isLogged" type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#editarEducacionModal" (click)="onOpenModal('edit',Education)">
+        <i class="bi bi-pencil-fill"></i>
+        </button>
+      </div>
+      </div>
+    </div>
+    
+  
+
 
 <!--Modal Create-->
 <div class="modal fade" id="agregarEducacionModal" tabindex="-1" aria-labelledby="agregarEducacionModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content text-dark">
       <div class="modal-header">
-        <h5 class="modal-title" style="color: black;" id="agregarEducacionModal">Modal title</h5>
+        <h5 class="modal-title" id="agregarEducacionModal">Añadir Educación</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div style="color: black;" class="modal-body">
+      <div class="modal-body">
         <form (ngSubmit)="onCreate()" noValidate #f="ngForm">
           <div class="form-group">
               <label for="nombreE">Nombre de la institución</label>
@@ -51,7 +53,7 @@
               <input type="text" class="form-control" id="imgEducation" name="imgEducation" [(ngModel)]= "imgEducation" required>
           </div>
 
-          <button class="btn btn-primary">
+          <button class="btn btn-primary m-2">
               Agregar Educación
           </button>
       </form>
@@ -64,14 +66,14 @@
 <!--Modal delete-->
 <div class="modal fade" data-bs-toggle="modal" data-bs-target="#eliminarEducacionModal" id="eliminarEducacionModal" tabindex="-1" role="dialog" aria-labelledby="eliminarEducacionModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content text-dark">
           <div class="modal-header">
               <h5 class="modal-title" id="eliminarEducacionModal">Borrar Educacion</h5>
               <button class="close" type="button" data-bs-dismiss="modal" aria-label="close" >
                   <span aria-hidden="true">&times;</span>
               </button>
           </div>
-          <div class="modal-body" style="color: black;">
+          <div class="modal-body">
               <p> Estas seguro que quiere eliminar {{deleteEducation?.nombreE}}?</p>
           </div>
           <div class="modal-footer">
@@ -91,38 +93,38 @@
 <!--Modal upDate-->
 <div class="modal fade" id="editarEducacionModal" tabindex="-1" aria-labelledby="editarEducacionModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content text-dark">
       <div class="modal-header">
-        <h5 class="modal-title" id="editarEducacionModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="editarEducacionModalLabel">Editar Educación</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form #editForm="ngForm">
           <div class="form-group">
-              <label for="nombreE">Titulo</label>
+              <label for="nombreE">Título</label>
               <input type="text" ngModel="{{editEducation?.nombreE}}" name="nombreE" class="form-control" id="titulo" placeholder="Titulo" aria-describedby="emailHelp">
           </div>
 
           <div class="form-group">
-              <label for="id">Id</label>
-              <input type="hidden" ngModel="{{editEducation?.id}}" name="id" class="form-control" id="ideEdu">
-          </div>
-
-          <div class="form-group">
-              <label for="descripcionE">Descripcion</label>
+              <label for="descripcionE">Descripción</label>
               <input type="text" ngModel="{{editEducation?.descripcionE}}" name="descripcionE" class="form-control" id="descripcionE" placeholder="Descripcion">
           </div>
 
           <div class="form-group">
-            <label for="imgEducation">Descripcion</label>
+            <label for="imgEducation">Url de la image</label>
             <input type="text" ngModel="{{editEducation?.imgEducation}}" name="imgEducation" class="form-control" id="imgEducation">
         </div>
+        <div class="form-group">
+          <label for="id"></label>
+          <input type="hidden" ngModel="{{editEducation?.id}}" name="id" class="form-control" id="ideEdu">
+      </div>
         
-          <div class="footer-modal">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> Cerrar </button>
+            <div class="footer-modal d-flex flex-row-reverse justify-content-end">
+              <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"> Cerrar </button>
 
-              <button (click)="onUpDateEducation(editForm.value)" class="btn btn-primary" data-bs-dismiss="modal"> Guardar cambios</button>
+              <button (click)="onUpDateEducation(editForm.value)" class="btn btn-primary m-1" data-bs-dismiss="modal"> Guardar</button>
           </div>
+        
       </form>
       
       </div>
@@ -134,81 +136,3 @@
 
 
 
-
-<!-- 
-<ul class="p-0">
-        <li class="d-flex flex-column flex-md-row align-items-center mb-4 mt-4">
-          <img src="../../../assets/image/Universidad-Nacional-del-Oeste.png" width="225" alt="" class="mt-2 mb-2">
-          <div class="container d-flex flex-column justify-content-center row">
-            <h1 class="text-center text-md-start fs-2">Licenciatura en Informática</h1>
-            <h2 class="text-center text-md-start fs-4">Universidad Nacional del Oeste <span class="fs-6">(Febr 2019- Presente)</span></h2>
-            <div class="col-lg-8 text-center text-md-start fs-6 mt-2">
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Fundamentos teóricos de informática</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Planificar, dirigir, realizar o evaluar proyectos de diseño</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Co-diseño hardware-software y prueba funcional de la arquitectura</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Controlar las normas de calidad en el software</p>
-            </div>
-         </div>
-        </li>
-
-        <li class="d-flex flex-column flex-md-row align-items-center mb-4 mt-4">
-          <img src="../../../assets/image/argpro.png" width="225" alt="" class="mt-2 mb-2">
-          <div class="container d-flex flex-column justify-content-center row">
-            <h1 class="text-center text-md-start fs-2">Desarrollador Fullstack</h1>
-            <h2 class="text-center text-md-start fs-4">Argentina Programa (INTI) <span class="fs-6">(Febr. 2022- Presente)</span></h2>
-            <div class="col-lg-8 text-center text-md-start fs-6 mt-2">
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Metodologías ágiles, Scrum, Github</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span>Sitios web estáticos HTML, CSS y JavaScript</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Crear páginas web dinámicas, Single page application(SPA),con
-              Angular</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Bases de datos, Paradigma Orientado a Objetos(POO)</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span>Implementación de Java SpringBoot</p>
-            </div>
-         </div>
-        </li>
-
-        <li class="d-flex flex-column flex-md-row align-items-center mb-4 mt-4">
-          <img src="../../../assets/image/aluraone.png" width="225" alt="" class="mt-2 mb-2">
-          <div class="container d-flex flex-column justify-content-center row">
-            <h1 class="text-center text-md-start fs-2">Desarrollador Front-End</h1>
-            <h2 class="text-center text-md-start fs-4">Alura latam | Oracle Next Education (ONE) <span class="fs-6">(Abrl. 2022 - presente)</span></h2>
-            <div class="col-lg-8 text-center text-md-start fs-6 mt-2">
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Crear un sitio web con las mejores prácticas responsives</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Implementar lógica de programación en los sitios web</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Realizar sitios complejos y dinámicos</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Aplicar los conceptos de programación orientada a objetos (POO)</p>
-            </div>
-         </div>
-        </li>
-        <li class="d-flex flex-column flex-md-row align-items-center mb-4 mt-4">
-          <img src="../../../assets/image/open.png" width="225" alt="" class="mt-2 mb-2">
-          <div class="container d-flex flex-column justify-content-center row">
-            <h1 class="text-center text-md-start fs-2">Desarrollador Front-End ReactJs</h1>
-            <h2 class="text-center text-md-start fs-4">Open-Bootcamp <span class="fs-6">(Abrl. 2022- Presente)</span></h2>
-            <div class="col-lg-8 text-center text-md-start fs-6 mt-2">
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Bases de la programación</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Bases de del desarrollo web (HTML, CSS y JavaScript)</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Sistema de control de versiones (Git, GitHub, GitLab)</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> ReactJs Intermedio y Avanzado</p>
-            </div>
-         </div>
-        </li>
-
-        <li class="d-flex flex-column flex-md-row align-items-center mb-4 mt-4">
-          <img src="../../../assets/image/udemylogo.png" width="225" alt="" class="mt-2 mb-2">
-          <div class="container d-flex flex-column justify-content-center row">
-            <h1 class="text-center text-md-start fs-2">Curso Desarrollador Web Fullstack</h1>
-            <h2 class="text-center text-md-start fs-4">Udemy <span class="fs-6">(Abrl 2021- Presente)</span></h2>
-            <div class="col-lg-8 text-center text-md-start fs-6 mt-2">
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Metodologias HTML, CSS (Módulos y BEM), y código JavaScrip(ES6)</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Entender como funciona JavaScript, PHP y Fetch API</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span> Aprender a crear sitios dínamicos, que utilicen bases de datos para almacenar y obtener información</p>
-            <p class="mb-0"><span class="color_emoji">&#9672;</span>  Crear aplicaciones CRUD con PHP y MySQL</p>
-            </div>
-         </div>
-        </li>
-    
-      </ul>
-
-
--->

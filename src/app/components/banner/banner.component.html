@@ -1,16 +1,53 @@
 
 <div class="container-flex" *ngFor="let img of banner">
-     <div style="background-image: url({{img.imgBanner}});" class=" d-flex flex-column justify-content-center align-items-center fondo-banner">
-      
-          <div class="me-6"> 
+     <div style="background-image: url({{img.imgBanner}});" class=" fondo-banner">
+          <div class="container">
+          <button type="button" class="btn btn-primary float-end mt-4" data-bs-toggle="modal" data-bs-target="#editarBannerModal" (click)="onOpenModal('edit', img)" *ngIf="isLogged"><i class="bi bi-pencil-fill"></i></button>
+          
+          <div class="d-flex flex-column justify-content-center align-items-center" style="height:600px;">
+          <div class="me-6n"> 
                <h1>Bienvenidos a mi sitio</h1>
              
           </div>
           <div class="d-flex justify-content-center">
                <h2 class="efecto"><i class="bi bi-chevron-left"></i>FullStack Developer<i class="bi bi-chevron-right"></i></h2>
           </div>
-
+           </div>
+          </div>
      </div>
 </div>
 
 
+<!--Modal upDate-->
+<div class="modal fade" id="editarBannerModal" tabindex="-1" aria-labelledby="editarBannerModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+       <div class="modal-content text-dark">
+         <div class="modal-header">
+           <h5 class="modal-title" id="editarBannerModalLabel">Editar Banner</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+           <form #editForm="ngForm">
+          
+   
+             <div class="form-group">
+                 <label for="imgBanner">Url de la imagen</label>
+                 <input type="text" ngModel="{{editBanner?.imgBanner}}" name="imgBanner" class="form-control" id="imgBanner">
+             </div>
+             
+             <div class="form-group">
+               <label for="id"></label>
+               <input type="hidden" ngModel="{{editBanner?.id}}" name="id" class="form-control" id="id">
+           </div>
+             <div class="footer-modal d-flex flex-row-reverse justify-content-end">
+               
+                 <button type="button" class="btn btn-primary m-2" data-bs-dismiss="modal"> Cerrar </button>
+   
+                 <button (click)="onUpDateBanner(editForm.value)" class="btn btn-primary m-2" data-bs-dismiss="modal"> Guardar</button>
+             </div>
+         </form>
+         
+         </div>
+       </div>
+     </div>
+   </div>

@@ -21,6 +21,6 @@ export class BannerService {
   }
 
   public updateBanner (id: number, banner: Banner):Observable<any>{
-    return this.httpClient.put<any>(this.bannerURL+`${id}`, banner);
+    return this.httpClient.put<any>(this.bannerURL+`update/${id}`, banner);
   }
 }

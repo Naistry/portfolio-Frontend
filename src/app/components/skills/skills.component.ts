@@ -45,7 +45,7 @@ export class SkillsComponent implements OnInit {
     const skill = new Skill(this.percent, this.imgSkill);
     console.log(skill);
     this.skillService.save(skill).subscribe(
-      data =>{alert('Educación añadida');
+      data =>{alert('Skill añadido');
       this.getSkills();
     }, err =>{ 
       alert('Falló');
@@ -56,11 +56,11 @@ export class SkillsComponent implements OnInit {
     
     if(mode==='delete'){
      this.deleteSkill = skill;
-  console.log(this.deleteSkill);
+  
    }else if (mode==='edit'){
 
      this.editSkill = skill;
-     console.log(skill);
+    
    }
 
  }
@@ -71,7 +71,7 @@ export class SkillsComponent implements OnInit {
       this.skillService.delete(id).subscribe(data=>{
         this.getSkills();
       }, err =>{
-        alert("No se pudo eliminar la educación");
+        alert("No se pudo eliminar el skill");
       });
     }
   }
@@ -81,7 +81,7 @@ export class SkillsComponent implements OnInit {
     this.skillService.update(skill.id, skill).subscribe(data=>{
       this.getSkills();
     }, err=>{
-      alert("No se pudo editar la educación");
+      alert("No se pudo editar el skill");
     });
   }
 }

@@ -9,10 +9,7 @@
 .contenedor{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
+  
 }
 
 h1{
@@ -25,36 +22,16 @@ h1{
 }
 
 
-@media(max-width:1208px){
-    .contenedor{
-       
-        width: 100%;
-      
-    }
-}
-
-@media (max-width: 1092px){
-    .contenedor{
-       
-        width: 80%;
-       
-    }
-}
-
-@media (max-width: 974px){
-    .contenedor{
-       
-      
-        width: 80%;
-    }
-}
-
-
-@media (max-width: 572px){
-    .contenedor{
-       
-      
-        width: 100%;
-        justify-content: center;
-    }
-}
+.btn {
+    background-color: #6c63ff;
+    box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+    -webkit-box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+    -moz-box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+    color:#fff;
+    
+  }
+  
+  .btn:hover{
+    background-color: #7F78A7;
+  }
+  

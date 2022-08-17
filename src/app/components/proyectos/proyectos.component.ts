@@ -61,7 +61,7 @@ export class ProyectosComponent implements OnInit {
     const proyecto = new Proyectos(this.tituloProyecto, this.fechaProyecto, this.descripcionProyecto, this.linkProyecto, this.imgProyecto);
    
     this.proyectoService.createProyecto(proyecto).subscribe(
-      data =>{alert('Educación añadida');
+      data =>{alert('Proyecto añadido');
       this.getProyectos();
     }, err =>{ 
       alert('Falló');
@@ -87,7 +87,7 @@ export class ProyectosComponent implements OnInit {
       this.proyectoService.deleteProyecto(id).subscribe(data=>{
         this.getProyectos();
       }, err =>{
-        alert("No se pudo eliminar la educación");
+        alert("No se pudo eliminar el proyecto");
       });
     }
   }
@@ -97,7 +97,7 @@ export class ProyectosComponent implements OnInit {
     this.proyectoService.upDateProyecto(proyecto.id, proyecto).subscribe(data=>{
       this.getProyectos();
     }, err=>{
-      alert("No se pudo editar la educación");
+      alert("No se pudo editar el proyecto");
     });
   }
 
