@@ -28,7 +28,17 @@ h1{
     
 }
 
+.contenedor-img{
+    background: #fff;
+    width: 258px;
+    
+}
 
+img{
+    height: 150px;
+    object-fit: contain;
+    
+}
 
 .btn {
     background-color: #6c63ff;

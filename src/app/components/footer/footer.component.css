@@ -2,3 +2,29 @@
     background: rgb(50,44,84);
     background: linear-gradient(355deg, rgba(50,44,84,1) 0%, rgba(35,29,73,1) 100%);
 }
+
+.color-1{
+    background: rgb(50,44,84);
+    background: linear-gradient(355deg, rgb(58, 51, 97) 0%, rgba(35,29,73,1) 100%);
+}
+
+.color-2{
+    background: rgb(93, 83, 163);
+    background: linear-gradient(355deg, rgb(67, 59, 113) 0%, rgba(35,29,73,1) 100%);
+}
+
+.color-3{
+    background: rgb(50,44,84);
+    background: linear-gradient(355deg, rgb(82, 72, 137) 0%, rgba(35,29,73,1) 100%);
+}
+
+.bg{
+    background-color: #6c63ff;
+    box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+  -webkit-box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+  -moz-box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+}
+
+.border-unique{
+    border-top: solid 2px#B2A8EE;
+}

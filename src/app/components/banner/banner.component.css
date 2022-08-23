@@ -14,7 +14,7 @@
     height: 600px;
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
+    color: #fff;
 
 }
 
@@ -25,7 +25,7 @@
     font-size: 2rem;
     margin: 0 auto;
     border-right: 0.15em solid #ffffff;
-    animation: typing 4s steps(19) 1s 1 normal both, blink 1s steps(1) infinite;
+    animation: typing 4s steps(21) 1s 1 normal both, blink 1s steps(1) infinite;
 }
 
 @keyframes typing {
@@ -56,4 +56,18 @@ img{
     100%{
         transform:rotateZ(360deg)
     }
+}
+
+
+.btn {
+  background-color: #6c63ff;
+  box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+  -webkit-box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+  -moz-box-shadow: 1px 9px 18px 0px rgba(255,255,255,0.4);
+  color:#fff;
+  
+}
+
+.btn:hover{
+  background-color: #7F78A7;
 }

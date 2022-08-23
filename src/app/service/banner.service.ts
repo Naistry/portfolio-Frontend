@@ -8,7 +8,7 @@ import { Banner } from '../model/banner';
 })
 export class BannerService {
 
-  bannerURL = 'http://localhost:8080/banner/';
+  bannerURL = 'https://backendmpp.herokuapp.com/banner/';
 
   constructor(private httpClient: HttpClient) { }
 
